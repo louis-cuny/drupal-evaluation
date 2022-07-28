@@ -1,11 +1,14 @@
 uuid: a3fd44d9-a870-4507-90dc-8990f5da92cd
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Authenticated user'
 weight: 1
 is_admin: false
-permissions: {  }
+permissions:
+  - 'access content'

@@ -1,0 +1,23 @@
+uuid: 52e74747-e15a-4731-9c5a-698f78f02fd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prodprice
+    - node.type.produit
+id: node.produit.field_prodprice
+field_name: field_prodprice
+entity_type: node
+bundle: produit
+label: prodPrice
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: €
+field_type: float

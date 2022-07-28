@@ -1,0 +1,19 @@
+uuid: 7c4c5350-7f6e-4bb0-bbe3-858e8a0434dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prodcity
+    - node.type.produit
+id: node.produit.field_prodcity
+field_name: field_prodcity
+entity_type: node
+bundle: produit
+label: prodCity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

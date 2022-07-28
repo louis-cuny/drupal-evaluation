@@ -1,0 +1,71 @@
+uuid: 3769aa2a-daa5-4d61-bf63-85bb7803c406
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.produit.field_prodcity
+    - field.field.node.produit.field_prodname
+    - field.field.node.produit.field_prodpicture
+    - field.field.node.produit.field_prodprice
+    - field.field.node.produit.field_prodref
+    - node.type.produit
+  module:
+    - image
+    - user
+id: node.produit.default
+targetEntityType: node
+bundle: produit
+mode: default
+content:
+  field_prodcity:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_prodname:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_prodpicture:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_prodprice:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_prodref:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }
