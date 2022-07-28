@@ -1,0 +1,99 @@
+{
+    "name": "daille-daille/ribote-project",
+    "type": "project",
+    "description": "Drupal project using the Ribote distribution",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "daille-daille/ribote": "*"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "require-dev": {
+        "drupal/core-composer-scaffold": "^9.3.12",
+        "drupal/core-dev": "^9.3.12",
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "config": {
+        "allow-plugins": {
+            "wikimedia/composer-merge-plugin": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "oomphinc/composer-installers-extender": true,
+            "drupal/console-extend-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "daille-daille/ribote",
+                "drupal/core"
+            ],
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "append": "robots-append.txt"
+                }
+            },
+            "gitignore": false,
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ]
+        },
+        "installer-types": [
+            "npm-asset",
+            "bower-asset"
+        ],
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/webform/composer.libraries.json"
+            ]
+        },
+        "patchLevel": {
+            "drupal/core": "-p2"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "load.environment.php"
+        ]
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
