@@ -1,37 +1,40 @@
-# Drupal distribution project
+# Drupal evaluation
 
-This project template should be used to start a new drupal project with the Ribote profile. 
+Ce projet est l'objet d'une évaluation technique.
 
-## Usage
+## Objectifs
 
-```
-composer create-project daille-daille/ribote-project MY_PROJECT --stability dev --no-interaction
-```
-The `composer create-project` command passes ownership of all files to the 
-project that is created. You should create a new git repository, and commit 
-all files.
+Consulter la liste de produits avec une pagination de 5 produits par page
+Ajouter de nouveaux produits
+Modifier chaque champs du produit
+Supprimer chaque ligne de produit
+Trier les produits par prodRef, prodName, prodCity, prodPrice par ordre croissant et décroissant
+Filtrer la liste par prodRef et prodName
+Filtrer la liste par une fourchette de prodPrice
+Filtrer la liste par une ou plusieurs prodCity
 
-## Installing Drupal
 
-You should update the `.env` file with your values.
-Then install drupal using drush:
-```shell
-vendor/bin/drush si ribote \
-  install_configure_form.enable_update_status_emails=NULL \
-  install_configure_form.enable_update_status_module=false \
-  install_configure_form.date_default_timezone=Europe/Paris \
-  install_configure_form.site_default_country=FR
-```
+## Installation
 
-## Features & design choices
+### Option 1 - Ddev
 
-### robots.txt
+Cette option consiste à utiliser ddev pour utiliser un environnement conteneurisé adapté à Drupal.
 
-Your project will have a robots-append.txt where you will be able to add custom indexation rules.
-The robots.txt will be updated with drupal core and your rules during the composer-scaffolding step of a composer command.
+1. Installer ddev
+Pour mac : `brew install drud/ddev/ddev`
+Pour les autres système d'opération, consulter cette page : https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/
+2. Se placer dans le projet et lancer la commande : `ddev start`
+3. Puis 'ddev composer install'
+4. Puis 'ddev import-db dump.sql.gz'
+5. Consulter le site depuis un des urls proposé par ddev.
+   `ddev describe` pour retrouver l'url si perdu.
 
-### core-composer-scaffold dependency in the require-dev section
+### Option 2 - En utilisant le serveur built-in a php.
 
-This choice has been made to avoid surprises during deployments.
-You should commit the scaffolded files you want in production.
-Of course, during production/pre-production deployments, you use the `composer install --no-dev` option.
+Il est nécessaire d'avoir php d'installé 8.0 ou supérieur, une base de donnée à disposition et composer.
+
+1. Renseigner les info de connexion dans le fichier .env.
+2. Y ajouter la variable d'environnement `USE_DDEV_DB=0`.
+3. `composer install`.
+4. Se placer dans le dossier web et lancer le serveur `php -S localhost:8090 .ht.router.php`.
+5. Consulter le site.

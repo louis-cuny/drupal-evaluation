@@ -18,6 +18,9 @@ composer_version: "2"
 web_environment: []
 nodejs_version: "16"
 
+host_db_port: "49154"
+omit_containers: [dba]
+
 # Key features of ddev's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
